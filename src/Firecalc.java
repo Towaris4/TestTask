@@ -1,6 +1,6 @@
 
 public class Firecalc {
-    public static double remains(double percent, int year) { //функция находит значение остатка баланса на бирже
+    public static double remains(double percent, int year) { //функция находит значение остатка баланса на бирже на 2022
         double capital = 1;
         double expenditure = capital * percent / 100;
         double balance = capital;
@@ -14,11 +14,13 @@ public class Firecalc {
     }
     public static double FindPercent(int year) { //функция определяет процент при котором баланс к началу 2022 = 0
         double a,b,d;
+        d = 1.00;
         double percent = 0.001;
         while (d > 0.001) {
             a = remains(percent,year);
-            b = remains(,year);
+            b = remains(percent,year);
         }
+        return percent;
     }
 }
 
