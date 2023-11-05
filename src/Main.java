@@ -7,6 +7,7 @@ public class Main {
         System.out.print("Input: ");
         int year = in.nextInt();
         in.close();
-        System.out.print("Input:" + Firecalc.remains(20,year));
+        double percent = Firecalc.FindPercent(year)-Firecalc.FindPercent(year)%0.5;
+        System.out.print("Input:" + percent);
         }
     }

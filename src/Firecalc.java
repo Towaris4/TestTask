@@ -12,15 +12,26 @@ public class Firecalc {
         }
         return balance;
     }
-    /* public static double FindPercent(int year) { //функция определяет процент при котором баланс к началу 2022 = 0
-        double a,b;
-        double percent = 0.001;
-        while(double r > 0.001) {
-            a = remains(percent,year);
-            b = remains(percent,year);
+    public static double FindPercent(int year) { //функция определяет процент при котором баланс к началу 2022 >= 0 методом половинного деления
+        double a = 0;
+        double b = 100;
+        double eps = 0.0001;
+        while (Math.abs(b - a) > eps) {
+            double c = (a + b) / 2;
+            double fa = remains(a, year);
+            double fb = remains(b, year);
+            double fc = remains(c, year);
+            if (fa * fc < 0) {
+                  b = c;
+             } else if (fb * fc < 0) {
+                  a = c;
+            }
         }
-        return percent;
-    } */
+        double solution;
+        solution = (a + b) / 2;
+        return solution;
+    }
+
 }
 
 
