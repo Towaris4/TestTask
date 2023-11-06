@@ -14,7 +14,7 @@ public class Firecalc {
     }
     public static double FindPercent(int year) { //функция определяет процент при котором баланс к началу 2022 >= 0 методом половинного деления
         double a = 0;
-        double b = 100;
+        double b = 101;
         double eps = 0.0001;
         while (Math.abs(b - a) > eps) {
             double c = (a + b) / 2;
