@@ -21,7 +21,7 @@ public class Firecalc {
 
     public static double FindPercent(int year) throws InvalidInputException, InputMismatchException { //функция определяет процент при котором баланс к началу 2022 >= 0 методом половинного деления
         if (year > 2021 || year < 2002) {
-            throw new InvalidInputException("Input year [2021-2022]");
+            throw new InvalidInputException("Input year [2002-2021]");
         }
         double a = 0;
         double b = 101;
