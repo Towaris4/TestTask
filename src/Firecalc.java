@@ -1,9 +1,3 @@
-
-class InvalidInputException extends Exception {
-    public InvalidInputException(String message) {
-        super(message);
-    }
-}
 public class Firecalc {
     public static double remains(double percent, int year) { //функция находит значение остатка баланса на бирже на 2022
         double balance = 1;
