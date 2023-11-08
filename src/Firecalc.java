@@ -1,4 +1,3 @@
-import java.util.InputMismatchException;
 
 class InvalidInputException extends Exception {
     public InvalidInputException(String message) {
@@ -18,7 +17,7 @@ public class Firecalc {
         return balance;
     }
 
-    public static double FindPercent(int year) throws InvalidInputException { //функция определяет процент при котором баланс к началу 2022 >= 0 методом половинного деления
+    public static double FindPercent(int year) throws InvalidInputException { //функция определяет процент при котором баланс к началу 2022 = 0 методом половинного деления
         if (year > 2021 || year < 2002) { //проверка ввода
             throw new InvalidInputException("Input year [2002-2021]");
         }
