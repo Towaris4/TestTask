@@ -7,9 +7,8 @@ class InvalidInputException extends Exception {
 }
 public class Firecalc {
     public static double remains(double percent, int year) { //функция находит значение остатка баланса на бирже на 2022
-        double capital = 1;
-        double expenditure = capital * percent / 100;
-        double balance = capital;
+        double balance = 1;
+        double expenditure = balance * percent / 100;
         for (int i = year; i < 2022; i++) {
             balance = balance - expenditure;
             double income = (Constants.MOEX_RATE[i - 2001] / Constants.MOEX_RATE[i - 2002]);
@@ -19,8 +18,8 @@ public class Firecalc {
         return balance;
     }
 
-    public static double FindPercent(int year) throws InvalidInputException, InputMismatchException { //функция определяет процент при котором баланс к началу 2022 >= 0 методом половинного деления
-        if (year > 2021 || year < 2002) {
+    public static double FindPercent(int year) throws InvalidInputException { //функция определяет процент при котором баланс к началу 2022 >= 0 методом половинного деления
+        if (year > 2021 || year < 2002) { //проверка ввода
             throw new InvalidInputException("Input year [2002-2021]");
         }
         double a = 0;

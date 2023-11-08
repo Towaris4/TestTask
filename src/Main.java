@@ -9,15 +9,9 @@ public class Main {
         try {
             int year = in.nextInt();
             double percent = Firecalc.FindPercent(year);
-            System.out.print("Output:" + (percent-percent%0.5) + "\n");
-        }
-        catch (InvalidInputException e) {
+            System.out.print("Output:" + (percent - percent % 0.5) + "\n");
+        } catch (InvalidInputException e) {
             System.out.println(e.getMessage());
-            System.out.println("Exception was processed. Program continues");
-        }
-        catch (InputMismatchException s) {
-            System.out.println(s.getMessage());
-            System.out.println("Exception was processed. Program continues");
-        }
-        }
+       }
     }
+}
