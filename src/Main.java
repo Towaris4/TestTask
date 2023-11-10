@@ -7,7 +7,7 @@ public class Main {
         System.out.print("Input: ");
         try {
             int year = in.nextInt();
-            double percent = Firecalc.FindPercent(year);
+            double percent = FireCalc.findPercent(year);
             System.out.print("Output:" + (percent - percent % 0.5) + "\n");
         } catch (InvalidInputException e) {
             System.out.println(e.getMessage());

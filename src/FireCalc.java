@@ -1,5 +1,5 @@
-public class Firecalc {
-    public static double remains(double percent, int year) { //функция находит значение остатка баланса на бирже на 2022
+public class FireCalc {
+    public static double getRemainsOn2022(double percent, int year) {
         double balance = 1;
         double expenditure = balance * percent / 100;
         for (int i = year; i < 2022; i++) {
@@ -11,8 +11,8 @@ public class Firecalc {
         return balance;
     }
 
-    public static double FindPercent(int year) throws InvalidInputException { //функция определяет процент при котором баланс к началу 2022 = 0 методом половинного деления
-        if (year > 2021 || year < 2002) { //проверка ввода
+    public static double findPercent(int year) throws InvalidInputException {
+        if (year > 2021 || year < 2002) {
             throw new InvalidInputException("Input year [2002-2021]");
         }
         double a = 0;
@@ -20,9 +20,9 @@ public class Firecalc {
         double eps = 0.0001;
         while (Math.abs(b - a) > eps) {
             double c = (a + b) / 2;
-            double fa = remains(a, year);
-            double fb = remains(b, year);
-            double fc = remains(c, year);
+            double fa = getRemainsOn2022(a, year);
+            double fb = getRemainsOn2022(b, year);
+            double fc = getRemainsOn2022(c, year);
             if (fa * fc < 0) {
                 b = c;
             } else if (fb * fc < 0) {
