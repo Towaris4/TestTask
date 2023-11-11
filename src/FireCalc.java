@@ -15,22 +15,22 @@ public class FireCalc {
         if (year > 2021 || year < 2002) {
             throw new InvalidInputException("Input year [2002-2021]");
         }
-        double a = 0;
-        double b = 101;
-        double eps = 0.0001;
-        while (Math.abs(b - a) > eps) {
-            double c = (a + b) / 2;
-            double fa = getRemainsOn2022(a, year);
-            double fb = getRemainsOn2022(b, year);
-            double fc = getRemainsOn2022(c, year);
-            if (fa * fc < 0) {
-                b = c;
-            } else if (fb * fc < 0) {
-                a = c;
+        double minPercentValue = 0;
+        double maxPercentValue = 101;
+        double CALCULATION_ERROR = 0.0001;
+        while (Math.abs(maxPercentValue - minPercentValue) > CALCULATION_ERROR) {
+            double midPercentValue = (minPercentValue + maxPercentValue) / 2;
+            double functionOfMinPercentValue = getRemainsOn2022(minPercentValue, year);
+            double functionOfMaxPercentValue = getRemainsOn2022(maxPercentValue, year);
+            double functionOfMidPercentValue = getRemainsOn2022(midPercentValue, year);
+            if (functionOfMinPercentValue * functionOfMidPercentValue < 0) {
+                maxPercentValue = midPercentValue;
+            } else if (functionOfMaxPercentValue * functionOfMidPercentValue < 0) {
+                minPercentValue = midPercentValue;
             }
         }
         double solution;
-        solution = (a + b) / 2;
+        solution = (minPercentValue + maxPercentValue) / 2;
         return solution;
     }
 }
