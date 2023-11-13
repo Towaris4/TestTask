@@ -10,7 +10,6 @@ public class FireCalc {
         }
         return balance;
     }
-
     public static double findPercent(int year) throws InvalidInputException {
         if (year > 2021 || year < 2002) {
             throw new InvalidInputException("Input year [2002-2021]");
