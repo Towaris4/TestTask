@@ -15,7 +15,7 @@ public class FireCalc {
         if (year > 2021 || year < 2002) {
             throw new InvalidInputException("Input year [2002-2021]");
         }
-        double minPercentValue = 0;
+        /*double minPercentValue = 0;
         double maxPercentValue = 101;
         double CALCULATION_ERROR = 0.0001;
         while (Math.abs(maxPercentValue - minPercentValue) > CALCULATION_ERROR) {
@@ -32,6 +32,14 @@ public class FireCalc {
         double solution;
         solution = (minPercentValue + maxPercentValue) / 2;
         return solution;
+    }*/
+        double percentValue = 0;
+        double balanceOn2022 = getRemainsOn2022(percentValue, year);
+        while (Double.compare(balanceOn2022, 0) != -1) {
+            percentValue = percentValue + 0.5;
+            balanceOn2022 = getRemainsOn2022(percentValue, year);
+        }
+        return percentValue-0.5;
     }
 }
 
