@@ -1,17 +1,19 @@
 public class FireCalc {
+    public static final int INITIAL_YEAR = 2002;
+    public static final int FINAL_YEAR = 2021;
     public static double getRemainsOn2022(double percent, int year) {
         double balance = 1;
         double expenditure = balance * percent / 100;
-        for (int i = year; i < 2022; i++) {
+        for (int i = year; i <= FINAL_YEAR; i++) {
             balance = balance - expenditure;
-            double income = (Constants.MOEX_RATE[i - 2001] / Constants.MOEX_RATE[i - 2002]);
+            double income = (Constants.MOEX_RATE[i - (INITIAL_YEAR-1)] / Constants.MOEX_RATE[i - INITIAL_YEAR]);
             balance = balance * income;
-            expenditure = expenditure * (1 + Constants.INFLATION_RATE[i - 2002] / 100);
+            expenditure = expenditure * (1 + Constants.INFLATION_RATE[i - INITIAL_YEAR] / 100);
         }
         return balance;
     }
     public static double findPercent(int year) throws InvalidInputException {
-        if (year > 2021 || year < 2002) {
+        if (year > FINAL_YEAR || year < INITIAL_YEAR) {
             throw new InvalidInputException("Input year [2002-2021]");
         }
         double percentValue = 0;
