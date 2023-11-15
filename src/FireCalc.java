@@ -1,6 +1,7 @@
 public class FireCalc {
     public static final int INITIAL_YEAR = 2002;
     public static final int FINAL_YEAR = 2021;
+    public static final double STEP_CALCULATION = 1.0;
     public static double getRemainsOn2022(double percent, int year) {
         double balance = 1;
         double expenditure = balance * percent / 100;
@@ -19,10 +20,10 @@ public class FireCalc {
         double percentValue = 0;
         double balanceOn2022 = getRemainsOn2022(percentValue, year);
         while (Double.compare(balanceOn2022, 0) != -1) {
-            percentValue = percentValue + 0.5;
+            percentValue = percentValue + STEP_CALCULATION;
             balanceOn2022 = getRemainsOn2022(percentValue, year);
         }
-        return percentValue-0.5;
+        return percentValue-STEP_CALCULATION;
     }
 }
 
